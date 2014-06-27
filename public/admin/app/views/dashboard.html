@@ -1,0 +1,66 @@
+<section>
+    <div class="content">
+        <div class="matter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="widget">
+                            <div class="widget-head">
+                                <div class="pull-left">Monitored Services
+                                    <h6 style="display:inline; margin-left:30px;">List is automatically refreshed.
+                                        Next refresh in <span data-bind="text: nextRefresh"></span> seconds</h6>
+
+                                </div>
+                                <div class="pull-right">
+
+                                    <a class="btn btn-sm btn-primary" href="#service/new">Add new service</a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="widget-content" style="display: block;">
+
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Guest access</th>
+                                        <th>Address</th>
+                                        <th>Last Response Code</th>
+                                        <th>Expected text</th>
+                                        <th>Occured</th>
+                                        <th>Status</th>
+                                        <th style="width:80px;">Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody data-bind="foreach: services">
+                                    <tr  data-bind="css: { disabled: disabled, iserror: notok}">
+                                        <td data-bind="text: name"></td>
+                                        <td data-bind="text: guestaccess"></td>
+                                        <td data-bind="text: address"></td>
+                                        <td data-bind="text: lastresponsecode"></td>
+                                        <td data-bind="text: expectedtext"></td>
+                                        <td data-bind="text: seen_formatted"></td>
+                                        <td>
+                                            <span data-bind="if: ok">
+                                                <span class="glyphicon glyphicon-ok"></span>
+                                            </span>
+                                            <span data-bind="if: notok">
+                                                <span class="glyphicon glyphicon-remove"></span>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-xs btn-primary" data-bind="click: Edit"><i class="icon-pencil"></i> </button>
+                                            <button class="btn btn-xs btn-danger" data-bind="click: Remove"><i class="icon-remove"></i> </button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
